@@ -1,0 +1,22 @@
+.example-form-field {
+    width: 200px;
+  }
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
+
+.rep{
+  float: left;
+  margin: 20px; 
+  width: 25%;
+}
+
+.mat-mini-fab.mat-warn{
+  margin: 20px;
+}
+
+.loading{
+margin-left: 50%;
+  
+}

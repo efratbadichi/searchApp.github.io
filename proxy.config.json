@@ -1,0 +1,8 @@
+{
+    "/api/*" : {
+        "target" : "http://fnxapi", 
+        "secure" : false,
+        "logLevel" : "debug", 
+        "changeOrigin": true
+    }
+}

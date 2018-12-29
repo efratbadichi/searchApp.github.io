@@ -1,0 +1,24 @@
+<!-- search control -->
+<mat-form-field class="example-form-field">
+  <input matInput type="text" placeholder="type repository name" [(ngModel)]="value" (keyup.enter)="search(1)">
+  <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+<button mat-mini-fab color="warn" (click)="search(1)">GO</button>
+
+<!-- result section-->
+<div class="row">
+  <div *ngIf="repArray != null && repArray.length > 0">
+    <pagination-controls (pageChange)="search($event)" ></pagination-controls>
+  </div>
+  <div [ngClass]="{ 'hidden': !loading }" class="loading">
+    <img src="/assets/images/loading.gif" />
+  </div>
+  <!-- loop through all repositories, each one rendered as sub component: 'app-repository-item' -->
+  <div [ngClass]="{ 'hidden': loading }" *ngFor="let repItem of repArray | paginate: { itemsPerPage: 15, currentPage: p, totalItems: total }" class="rep">
+    <app-repository-item [data]="repItem" class=""></app-repository-item>
+  </div>
+
+
+</div>
